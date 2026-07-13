@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emiola Samuel — Paradise Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14213D;
+    --ink-deep: #0D1730;
+    --paper: #EDE6D6;
+    --paper-soft: #F5F1E8;
+    --brass: #C9A227;
+    --burgundy: #6B1F2A;
+    --charcoal: #2B2B2B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper-soft);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .eyebrow {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    color: var(--brass);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8vh 8vw 6vh;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 80% 15%, rgba(201,162,39,0.10), transparent 55%),
+      var(--ink);
+    border-bottom: 1px solid rgba(201,162,39,0.25);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 6px;
+    background: linear-gradient(180deg, var(--brass), var(--burgundy) 60%, transparent);
+    opacity: 0.8;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.6rem, 7vw, 5.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    color: var(--paper-soft);
+    margin: 1rem 0 0.6rem;
+    animation: riseIn 0.9s cubic-bezier(.2,.8,.2,1) both;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--brass);
+  }
+
+  .hero-sub {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+    color: rgba(245,241,232,0.75);
+    max-width: 40ch;
+    margin-bottom: 2.2rem;
+    animation: riseIn 0.9s 0.1s cubic-bezier(.2,.8,.2,1) both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: riseIn 0.9s 0.2s cubic-bezier(.2,.8,.2,1) both;
+  }
+
+  .btn {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 2px;
+    border: 1px solid var(--brass);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-solid {
+    background: var(--brass);
+    color: var(--ink-deep);
+    font-weight: 700;
+  }
+  .btn-solid:hover { background: #ddb837; transform: translateY(-2px); }
+
+  .btn-ghost {
+    color: var(--paper-soft);
+  }
+  .btn-ghost:hover { background: rgba(201,162,39,0.12); transform: translateY(-2px); }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== SECTION SHELL ===== */
+  section { padding: 7rem 8vw; }
+  .section-head { margin-bottom: 3rem; max-width: 60ch; }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+    margin-top: 0.6rem;
+  }
+  .section-note {
+    color: rgba(245,241,232,0.65);
+    margin-top: 0.8rem;
+    font-size: 1rem;
+  }
+
+  /* ===== SHELF / PROJECTS ===== */
+  .shelf {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 2rem;
+    align-items: end;
+  }
+
+  .book {
+    background: var(--paper);
+    color: var(--charcoal);
+    border-radius: 2px 6px 6px 2px;
+    position: relative;
+    padding: 2rem 1.5rem 1.6rem;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: -6px 0 0 rgba(0,0,0,0.15), 0 14px 28px rgba(0,0,0,0.35);
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
+    cursor: default;
+  }
+
+  .book::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 10px;
+    background: var(--spine, var(--burgundy));
+    border-radius: 2px 0 0 2px;
+  }
+
+  .book:hover {
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: -8px 4px 0 rgba(0,0,0,0.18), 0 24px 40px rgba(0,0,0,0.45);
+  }
+
+  .book-no {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--burgundy);
+    letter-spacing: 0.1em;
+  }
+
+  .book-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.35rem;
+    line-height: 1.15;
+    margin: 0.6rem 0 0.4rem;
+  }
+
+  .book-client {
+    font-size: 0.85rem;
+    color: #5a5344;
+    margin-bottom: 0.8rem;
+  }
+
+  .book-desc {
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+  }
+
+  .book-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-soft);
+    background: var(--ink);
+    padding: 0.3rem 0.6rem;
+    border-radius: 2px;
+    display: inline-block;
+    width: fit-content;
+  }
+
+  /* ===== SERVICES ===== */
+  .services {
+    background: var(--ink-deep);
+    border-top: 1px solid rgba(201,162,39,0.2);
+    border-bottom: 1px solid rgba(201,162,39,0.2);
+  }
+  .service-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.2rem;
+    margin-top: 1rem;
+  }
+  .service-item {
+    border-top: 1px solid rgba(201,162,39,0.3);
+    padding-top: 1.2rem;
+  }
+  .service-num {
+    font-family: 'Space Mono', monospace;
+    color: var(--brass);
+    font-size: 0.8rem;
+  }
+  .service-name {
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0.5rem 0 0.4rem;
+  }
+  .service-desc {
+    font-size: 0.92rem;
+    color: rgba(245,241,232,0.7);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact {
+    text-align: center;
+    padding-bottom: 8rem;
+  }
+  .contact .section-title { margin: 0 auto; }
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.2rem;
+  }
+  footer {
+    text-align: center;
+    padding: 2rem 8vw 3rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(245,241,232,0.4);
+    border-top: 1px solid rgba(201,162,39,0.15);
+  }
+
+  a:focus-visible, .book:focus-visible {
+    outline: 2px solid var(--brass);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    section { padding: 4.5rem 6vw; }
+    .hero { padding: 6vh 6vw 5vh; min-height: 88vh; }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="eyebrow">Paradise Concept — Author &amp; Content Studio</div>
+    <h1 class="hero-title">Emiola Samuel<br><em>writes the book</em><br>your business needs.</h1>
+    <p class="hero-sub">Ebooks, planners, and guides that turn what you know into something people download, read, and buy.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="mailto:emiolasamuel2005@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="https://wa.me/2349154024378" target="_blank" rel="noopener">WhatsApp: 0915 402 4378</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="section-head">
+      <div class="eyebrow">Selected Work</div>
+      <h2 class="section-title">Five books off the shelf</h2>
+      <p class="section-note">Sample projects showing the range of ebooks and guides I write — from lead magnets to sellable digital products.</p>
+    </div>
+
+    <div class="shelf">
+      <div class="book" style="--spine:#6B1F2A;" tabindex="0">
+        <div>
+          <div class="book-no">01</div>
+          <div class="book-title">The Workbook Method</div>
+          <div class="book-client">Skillbridge Academy — Online Course Creator</div>
+          <div class="book-desc">A companion workbook for a video course, so students actually finish what they start instead of dropping off after lesson two.</div>
+        </div>
+        <span class="book-tag">Course Workbook</span>
+      </div>
+
+      <div class="book" style="--spine:#C9A227;" tabindex="0">
+        <div>
+          <div class="book-no">02</div>
+          <div class="book-title">Planning the Aisle</div>
+          <div class="book-client">Rose &amp; Ivory Events — Wedding Planning</div>
+          <div class="book-desc">A free guide for engaged couples covering budgeting, vendor timelines, and checklists — built to be given away and generate booking inquiries.</div>
+        </div>
+        <span class="book-tag">Lead Magnet</span>
+      </div>
+
+      <div class="book" style="--spine:#2E4A6B;" tabindex="0">
+        <div>
+          <div class="book-no">03</div>
+          <div class="book-title">Getting Started with PayNest</div>
+          <div class="book-client">PayNest — Fintech Startup</div>
+          <div class="book-desc">A plain-language onboarding guide that walks new users through the app, cutting down support tickets from first-time users.</div>
+        </div>
+        <span class="book-tag">Product Guide</span>
+      </div>
+
+      <div class="book" style="--spine:#4A6B3E;" tabindex="0">
+        <div>
+          <div class="book-no">04</div>
+          <div class="book-title">A Year of Bridges</div>
+          <div class="book-client">Hope Bridge Foundation — Nonprofit</div>
+          <div class="book-desc">An annual impact story ebook turning program data and beneficiary stories into a document donors actually want to read.</div>
+        </div>
+        <span class="book-tag">Impact Report</span>
+      </div>
+
+      <div class="book" style="--spine:#6B3E5A;" tabindex="0">
+        <div>
+          <div class="book-no">05</div>
+          <div class="book-title">Root to Glow</div>
+          <div class="book-client">GlowRoot Naturals — Skincare Brand</div>
+          <div class="book-desc">A skincare routine guide built around the brand's product line — written to educate first and sell second.</div>
+        </div>
+        <span class="book-tag">Brand Guide</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="section-head">
+      <div class="eyebrow">How I Can Help</div>
+      <h2 class="section-title">What I write</h2>
+    </div>
+    <div class="service-list">
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-name">Lead-magnet ebooks</div>
+        <div class="service-desc">Short, focused guides that grow your list and build trust before the first conversation.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-name">Sellable digital products</div>
+        <div class="service-desc">Planners, workbooks, and guides priced and packaged to sell on their own.</div>
+      </div>
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-name">Brand &amp; onboarding guides</div>
+        <div class="service-desc">Clear, plain-language documents that explain your product or service without the jargon.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="eyebrow">Get In Touch</div>
+    <h2 class="section-title">Let's write your next book</h2>
+    <p class="section-note" style="margin-left:auto;margin-right:auto;">Full ebooks start at ₦100,000 — outline, writing, and a designed PDF included.</p>
+    <div class="contact-links">
+      <a class="btn btn-solid" href="mailto:emiolasamuel2005@gmail.com">emiolasamuel2005@gmail.com</a>
+      <a class="btn btn-ghost" href="https://wa.me/2349154024378" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+  </section>
+
+  <footer>Emiola Samuel · Paradise Concept · Built page by page</footer>
+
+</body>
+</html>
